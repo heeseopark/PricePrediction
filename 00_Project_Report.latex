@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\title{Price Prediction LSTM Model: Project Final Report}
+\author{Your Name}
+\date{Year}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+In today's fast-paced financial market, the ability to predict price movements is crucial. This report details a project focused on developing a price prediction model using Long Short-Term Memory (LSTM), a type of recurrent neural network. The goal of this project is to provide accurate price forecasts that could potentially be used for investment decisions, risk management, and strategic planning.
+
+\section{Related Work}
+
+Various approaches have been employed in an attempt to predict price movements, with techniques ranging from traditional time series analysis to machine learning algorithms. The most relevant to our project are methods that use deep learning techniques, specifically LSTM networks. LSTM networks, due to their ability to remember long-term dependencies, have shown to be effective in time series predictions, including stock price forecasts.
+
+\section{Approach}
+
+Our model is based on the LSTM network, a type of RNN that effectively captures time dependencies by using memory cells. These cells allow the model to carry information across longer time steps, making them ideal for time series prediction tasks. The LSTM network is trained using historical price data and is used to predict future price movements.
+
+\section{Experiment}
+
+The model was trained and tested on a dataset comprising of price data over several years. During training, the model's parameters are adjusted to minimize the difference between the predicted price and the actual price. After training, the model's performance was evaluated on a separate test set.
+
+\section{Analysis}
+
+The results show that the LSTM model successfully captured the underlying trends in the price data. Furthermore, it was able to predict price changes with reasonable accuracy. The model's performance was evaluated based on metrics such as Mean Absolute Error (MAE) and Root Mean Square Error (RMSE).
+
+\section{Conclusion}
+
+This project demonstrates that LSTM models can effectively predict price changes. It offers a powerful tool for financial forecasting, which can be beneficial to various stakeholders in the financial industry. Future work will focus on improving the model's performance and exploring the potential of other deep learning techniques in price prediction.
+
+\end{document}
