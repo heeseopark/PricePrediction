@@ -22,14 +22,14 @@ end_date = datetime(2023, 5, 15)
 all_dates = {start_date + timedelta(days=i) for i in range((end_date-start_date).days + 1)}
 
 # Directory where the files are located
-directory = r"C:\Github\PricePrediction\btc_data"
+directory = r"C:\Github\PricePrediction\csvfiles\BTCUSDT"
 
 # Set of existing dates
 existing_dates = set()
 
 # Iterate over all the files in the directory
 for filename in os.listdir(directory):
-    if filename.endswith(".zip"):  # If the file is a ZIP file
+    if filename.endswith(".csv"):  # If the file is a csv file
         date = parse_date(filename)
         if date is not None:
             existing_dates.add(date)
@@ -38,6 +38,7 @@ for filename in os.listdir(directory):
 missing_dates = all_dates - existing_dates
 
 # Print the missing dates
-for date in sorted(missing_dates):
-    print(date.strftime('%Y-%m-%d'))
+for datecheck in sorted(missing_dates):
+    print(datecheck.strftime('%Y-%m-%d'))
+
 
