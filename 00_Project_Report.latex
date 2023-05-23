@@ -2,8 +2,8 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 
-\title{Price Prediction LSTM Model: Project Final Report}
-\author{Your Name}
+\title{Predicting Cryptocurrency and Stock Prices Using LSTM Models and an Investigation into the Role of Emotions in Trading Strategies}
+\author{Heeseo Park}
 \date{Year}
 
 \begin{document}
@@ -12,7 +12,11 @@
 
 \section{Introduction}
 
-In today's fast-paced financial market, the ability to predict price movements is crucial. This report details a project focused on developing a price prediction model using Long Short-Term Memory (LSTM), a type of recurrent neural network. The goal of this project is to provide accurate price forecasts that could potentially be used for investment decisions, risk management, and strategic planning.
+The unpredictability and volatility of financial markets, particularly in the realm of stocks and cryptocurrencies, have been a prevalent area of interest for many researchers and investors alike. 
+
+Over the years, the emergence of machine learning and, specifically, neural networks has opened new possibilities to uncover the underlying patterns governing these price fluctuations. 
+
+This research paper is born from the desire to investigate the ability of an LSTM (Long Short-Term Memory) model to predict such price changes by leveraging its unique features of handling time-series data effectively.
 
 \section{Related Work}
 
@@ -20,7 +24,13 @@ Various approaches have been employed in an attempt to predict price movements, 
 
 \section{Approach}
 
-Our model is based on the LSTM network, a type of RNN that effectively captures time dependencies by using memory cells. These cells allow the model to carry information across longer time steps, making them ideal for time series prediction tasks. The LSTM network is trained using historical price data and is used to predict future price movements.
+Our approach begins with the use of an LSTM model for price prediction. 
+
+We opt for LSTM due to its ability to handle time-series data effectively, making it a suitable choice for predicting stock or cryptocurrency prices, which are primarily time-series data. 
+
+Initially, the LSTM model is trained solely with the Bitcoin prices, with no explicit pattern or additional factors integrated into the learning process. 
+
+Furthermore, we aim to consider the impact of human emotion on trading. Hence, we propose to construct a model that employs the predicted prices from our LSTM model to formulate trading strategies.
 
 \section{Experiment}
 
