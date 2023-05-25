@@ -35,7 +35,7 @@ while True:
         download_link.click()
         print(f'row {row} downloaded')
         row += 2
-        time.sleep(0.5)
+        time.sleep(0.1)
     except (NoSuchElementException, ElementNotInteractableException):
         action = ActionChains(browser)
         action.move_to_element(download_link)
@@ -43,7 +43,7 @@ while True:
         
         download_link.click()
         row += 2
-        time.sleep(0.5)
+        time.sleep(0.1)
         break
 
 print('download all complete')
