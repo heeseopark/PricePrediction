@@ -4,7 +4,7 @@
 
 \title{Predicting Cryptocurrency and Stock Prices Using LSTM Models and an Investigation into the Role of Emotions in Trading Strategies}
 \author{Heeseo Park}
-\date{Year}
+\date{2023-05-28}
 
 \begin{document}
 
@@ -45,3 +45,11 @@ The results show that the LSTM model successfully captured the underlying trends
 This project demonstrates that LSTM models can effectively predict price changes. It offers a powerful tool for financial forecasting, which can be beneficial to various stakeholders in the financial industry. Future work will focus on improving the model's performance and exploring the potential of other deep learning techniques in price prediction.
 
 \end{document}
+
+
+###
+
+how walk-forward validation is used?
+
+output_dim 을 10개의 숫자로 둘 것이나 10개의 숫자가 있는 하나의 tensor로 둘 것이냐
+
