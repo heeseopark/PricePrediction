@@ -2,7 +2,7 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 
-\title{Predicting Cryptocurrency and Stock Prices Using LSTM Models and an Investigation into the Role of Emotions in Trading Strategies}
+\title{Predicting Cryptocurrency and Stock Prices Using LSTM Models for Trading Strategies}
 \author{Heeseo Park}
 \date{2023-05-28}
 
@@ -23,22 +23,33 @@ This research paper is born from the desire to investigate the ability of an LST
 Various approaches have been employed in an attempt to predict price movements, with techniques ranging from traditional time series analysis to machine learning algorithms. The most relevant to our project are methods that use deep learning techniques, specifically LSTM networks. LSTM networks, due to their ability to remember long-term dependencies, have shown to be effective in time series predictions, including stock price forecasts.
 
 \section{Approach}
+Our approach begins with the use of an LSTM model for price prediction. We'll use the LSTM model due to its ability to handle time-series data effectively, making it a suitable choice for predicting stock or cryptocurrency prices, which are primarily time-series data. Initially, the LSTM model is trained solely with the Bitcoin prices, with no explicit pattern or additional factors integrated into the learning process. 
 
-Our approach begins with the use of an LSTM model for price prediction. 
+In order to effectively predict the rise and fall of financial market prices, our data processing strategy focused on the price change within a single minute, rather than using the raw open and close prices. This choice was motivated by our specific interest in price fluctuations, irrespective of the actual price levels. By focusing on price changes, we mitigate the issue of dealing large numbers, as price changes are typically smaller and more uniformly distributed than raw price values.
 
-We opt for LSTM due to its ability to handle time-series data effectively, making it a suitable choice for predicting stock or cryptocurrency prices, which are primarily time-series data. 
+Moreover, using minute-by-minute price changes aligns well with our goal of predicting price movements. These changes effectively represent the volatility of the market - the very aspect we are aiming to forecast. This approach not only simplifies the computational aspects of our model training but also aligns the input data more closely with our prediction targets, potentially leading to more accurate and relevant predictions. Overall, by utilizing minute-by-minute price changes in our LSTM model, we can focus on learning the patterns and dependencies associated with market volatility, providing a solid foundation for predicting future price changes.
 
-Initially, the LSTM model is trained solely with the Bitcoin prices, with no explicit pattern or additional factors integrated into the learning process. 
-
-Furthermore, we aim to consider the impact of human emotion on trading. Hence, we propose to construct a model that employs the predicted prices from our LSTM model to formulate trading strategies.
+In the training process, we utilized the walk-forward validation method, which is often used in time series forecasting. This method involves gradually including more data in the training set step by step and predicting the next point. At each step, the model is retrained with the updated dataset, ensuring that it adapts to any changes in the pattern of data over time.
 
 \section{Experiment}
 
-The model was trained and tested on a dataset comprising of price data over several years. During training, the model's parameters are adjusted to minimize the difference between the predicted price and the actual price. After training, the model's performance was evaluated on a separate test set.
+In this study, we used a dataset consisting of several years' worth of price data. A custom PyTorch dataset was developed to efficiently handle this time-series data. The dataset employed a 'map-style' structure, where each sample is associated with a key, in this case, a date.
+
+The dataset was divided into training and test sets based on dates. This method of splitting time-series data ensures that the model is evaluated on unseen, future data, reflecting a realistic scenario.
+
+During the training process, we utilized the walk-forward validation method. This strategy allows the model to gradually include more data in the training set step by step, retraining the model at each step to adapt to any changes in the data pattern over time.
+After training, the model's performance was evaluated on the separate test set.
 
 \section{Analysis}
 
-The results show that the LSTM model successfully captured the underlying trends in the price data. Furthermore, it was able to predict price changes with reasonable accuracy. The model's performance was evaluated based on metrics such as Mean Absolute Error (MAE) and Root Mean Square Error (RMSE).
+The LSTM model was trained using the Mean Squared Error Loss (MSELoss) as the loss function and the Adam optimizer. MSELoss was chosen as it effectively handles regression problems, such as predicting a continuous variable like price. It calculates the average of the squares of the differences between the predicted and actual values, heavily penalizing larger errors, which aids in improving model accuracy. The Adam optimizer, known for its efficiency and robust performance in scenarios with large amounts of data or parameters, further facilitated the training process.
+
+After the model was trained, its performance was evaluated on a separate test set to reflect a realistic scenario where the model needs to make predictions on unseen, future data.
+
+The results demonstrated that the LSTM model successfully captured the underlying trends in the price data and was able to predict price changes with reasonable accuracy. Performance evaluation was based on metrics such as Mean Absolute Error (MAE) and Root Mean Square Error (RMSE), which are standard indicators of model performance in regression tasks.
+
+Through these analyses, it can be concluded that LSTM models show potential for effectively predicting price changes in financial market scenarios. This conclusion informs our future exploration into other deep learning techniques and their ability to predict and interpret patterns in financial data.
+
 
 \section{Conclusion}
 
@@ -47,9 +58,18 @@ This project demonstrates that LSTM models can effectively predict price changes
 \end{document}
 
 
+
 ###
 
-how walk-forward validation is used?
-
 output_dim 을 10개의 숫자로 둘 것이나 10개의 숫자가 있는 하나의 tensor로 둘 것이냐
+
+실험 기준
+lstm layder 개수
+learning rate
+drop out 추가 여부 -> gpt prompt 에서 찾아보기
+
+evalution 그래프로 나타낼 수 있게 하기
+
+evaluation method
+
 
