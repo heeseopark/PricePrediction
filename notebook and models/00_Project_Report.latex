@@ -1,10 +1,9 @@
 \documentclass{article}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\title{\line(1,0){250}\\Predicting Cryptocurrency and Stock Prices Using LSTM Models for Trading Strategies\\\line(1,0){250}}
+\author{Heeseo Park}\date{2023-05-28}
 
-\title{Predicting Cryptocurrency and Stock Prices Using LSTM Models for Trading Strategies}
-\author{Heeseo Park}
-\date{2023-05-28}
 
 \begin{document}
 
@@ -40,6 +39,41 @@ The dataset was divided into training and test sets based on dates. This method 
 During the training process, we utilized the walk-forward validation method. This strategy allows the model to gradually include more data in the training set step by step, retraining the model at each step to adapt to any changes in the data pattern over time.
 After training, the model's performance was evaluated on the separate test set.
 
+In our research, we aim to conduct a comparative study of various LSTM models for price prediction. The models are distinguished by the number of LSTM layers they incorporate, with configurations of 2, 3, and 4 layers. We seek to determine the influence of these architectural variations on the predictive power of each model. Additionally, we investigate the effect of dropout layers within the models. Dropout is utilized as a mechanism to counter overfitting, especially when dealing with significant unexpected changes in price trends. Thus, our experiment encompasses a total of six LSTM models, each presenting a unique combination of LSTM layers and dropout provision. This comparative analysis will offer insights into the most effective model structures for price prediction tasks.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+ & Num of LSTM layers & Dropout Layer\\
+\hline
+Model 1 & 2 & No \\
+\hline
+Model 2 & 3 & No \\
+\hline
+Model 3 & 4 & No \\
+\hline
+Model 4 & 2 & Yes \\
+\hline
+Model 5 & 3 & Yes \\
+\hline
+Model 6 & 4 & Yes \\
+\hline
+\end{tabular}
+\caption{LSTM models used for experiment}
+\label{tab:my_label}
+\end{table}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.75\textwidth]{Figure_1 for JPEG.jpeg}
+\caption{Training and Evaluation results for LSTM models}
+\label{fig:my_label}
+\end{figure}
+
+
+evaluation method needs to be explained
+
 \section{Analysis}
 
 The LSTM model was trained using the Mean Squared Error Loss (MSELoss) as the loss function and the Adam optimizer. MSELoss was chosen as it effectively handles regression problems, such as predicting a continuous variable like price. It calculates the average of the squares of the differences between the predicted and actual values, heavily penalizing larger errors, which aids in improving model accuracy. The Adam optimizer, known for its efficiency and robust performance in scenarios with large amounts of data or parameters, further facilitated the training process.
@@ -57,19 +91,5 @@ This project demonstrates that LSTM models can effectively predict price changes
 
 \end{document}
 
-
-
-###
-
-output_dim 을 10개의 숫자로 둘 것이나 10개의 숫자가 있는 하나의 tensor로 둘 것이냐
-
-실험 기준
-lstm layder 개수
-learning rate
-drop out 추가 여부 -> gpt prompt 에서 찾아보기
-
-evalution 그래프로 나타낼 수 있게 하기
-
-evaluation method
 
 
